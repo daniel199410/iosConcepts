@@ -6,3 +6,9 @@ if cedulaProfesional {
     salario = 8000
 }
 salario
+
+func sendMessage(name:String, message:String = "Ha ocurrido un error") -> String {
+    return "\(name), \(message)";
+}
+
+sendMessage(name: "Daniel")
