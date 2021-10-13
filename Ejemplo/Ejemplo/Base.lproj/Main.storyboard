@@ -36,22 +36,46 @@
                                     <constraint firstAttribute="height" constant="120" id="sF3-CG-00W"/>
                                 </constraints>
                             </pickerView>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="qRq-pU-nEF">
+                                <rect key="frame" x="0.0" y="170" width="375" height="26"/>
+                                <connections>
+                                    <action selector="pageControlAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="AN6-0O-Gwb"/>
+                                </connections>
+                            </pageControl>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="IbT-bC-Ezv">
+                                <rect key="frame" x="20" y="226" width="335" height="32"/>
+                                <segments>
+                                    <segment title="First"/>
+                                    <segment title="Second"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentedControlAction:" destination="BYZ-38-t0r" eventType="valueChanged" id="YzP-R6-Owx"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="qRq-pU-nEF" firstAttribute="top" secondItem="3XK-tm-Cvm" secondAttribute="bottom" constant="30" id="D4V-F9-byI"/>
                             <constraint firstItem="3XK-tm-Cvm" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="JQ6-Ux-pNL"/>
+                            <constraint firstItem="IbT-bC-Ezv" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="Lv2-dC-A7T"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="qRq-pU-nEF" secondAttribute="trailing" id="PR3-8A-tCc"/>
                             <constraint firstItem="3XK-tm-Cvm" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="Q5T-Wg-MJf"/>
+                            <constraint firstItem="qRq-pU-nEF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Q6K-Mh-c0z"/>
                             <constraint firstItem="3XK-tm-Cvm" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Zum-l8-ljx"/>
                             <constraint firstItem="we8-C1-JEn" firstAttribute="centerY" secondItem="6Tk-OE-BBY" secondAttribute="centerY" id="cuJ-l5-JIq"/>
+                            <constraint firstItem="IbT-bC-Ezv" firstAttribute="top" secondItem="qRq-pU-nEF" secondAttribute="bottom" constant="30" id="epu-Ky-0t6"/>
                             <constraint firstItem="we8-C1-JEn" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="is4-7h-21P"/>
                             <constraint firstItem="UO9-HN-CmA" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="pj9-o1-UtG"/>
                             <constraint firstItem="UO9-HN-CmA" firstAttribute="top" secondItem="we8-C1-JEn" secondAttribute="bottom" constant="20" id="wpA-Mh-0Qn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="IbT-bC-Ezv" secondAttribute="trailing" constant="20" id="x4f-Pu-RAF"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="label" destination="we8-C1-JEn" id="atM-ws-Gxt"/>
+                        <outlet property="pageControl" destination="qRq-pU-nEF" id="yXS-NB-7vD"/>
                         <outlet property="picker" destination="3XK-tm-Cvm" id="QI3-l2-axT"/>
+                        <outlet property="segmentedControl" destination="IbT-bC-Ezv" id="gBx-QB-yic"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

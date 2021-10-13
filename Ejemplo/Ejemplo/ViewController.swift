@@ -11,6 +11,8 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var picker: UIPickerView!
+    @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     private let pickerValues = ["Uno", "Dos", "Tres", "Cuatro", "Cinco"]
     
@@ -18,6 +20,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         picker.dataSource = self
         picker.delegate = self
+        pageControl.numberOfPages = pickerValues.count
+        pageControl.backgroundStyle = .prominent
+        segmentedControl.removeAllSegments()
+        for (index, value) in pickerValues.enumerated() {
+            segmentedControl.insertSegment(withTitle: value, at: index, animated: true)
+        }
     }
 
     
@@ -27,6 +35,18 @@ class ViewController: UIViewController {
         } else {
             label.text = "Sí"
         }
+    }
+    
+    @IBAction func pageControlAction(_ sender: Any) {
+        picker.selectRow(pageControl.currentPage, inComponent: 0, animated: true)
+        label.text = pickerValues[pageControl.currentPage]
+        segmentedControl.selectedSegmentIndex = pageControl.currentPage
+    }
+    
+    @IBAction func segmentedControlAction(_ sender: Any) {
+        picker.selectRow(segmentedControl.selectedSegmentIndex, inComponent: 0, animated: true)
+        pageControl.currentPage = segmentedControl.selectedSegmentIndex
+        label.text = pickerValues[segmentedControl.selectedSegmentIndex]
     }
     
 }
@@ -46,5 +66,7 @@ extension ViewController: UIPickerViewDataSource, UIPickerViewDelegate {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         label.text = pickerValues[row]
+        pageControl.currentPage = row
+        segmentedControl.selectedSegmentIndex = row
     }
 }
